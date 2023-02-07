@@ -1,0 +1,117 @@
+<app-loader *ngIf="!data"></app-loader>
+<div class="container-fluid ">
+    <div class="row justify-content-around gap-3 "  *ngIf="data">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                    Total Users
+                </div>
+                <div class="fs-3 fw-bolder">
+                   {{data.users_Count}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                    Total Vet
+                </div>
+                <div class="fs-3 fw-bolder">
+                  {{data.vets_count}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                    Available Products
+                </div>
+                <div class="fs-3 fw-bolder">
+                  {{data.products_available}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                    Unavailable Products
+                </div>
+                <div class="fs-3 fw-bolder">
+                  {{data.products_not_available}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                    Total appointments
+                </div>
+                <div class="fs-3 fw-bolder">
+                   {{data.appointments_count}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                    Total Consultancies
+                </div>
+                <div class="fs-3 fw-bolder">
+                   {{data.Consultancies_Count}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                    Total Blogs
+                </div>
+                <div class="fs-3 fw-bolder">
+                   {{data.blogs_count}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                    Completed Orders
+                </div>
+                <div class="fs-3 fw-bolder">
+                   {{data.orders_complete}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                   Processing Order
+                </div>
+                <div class="fs-3 fw-bolder">
+                   {{data.orders_in_processing}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-2 py-5 px-4 border-1 border-dark bg-white box-shadow">
+            <div class="">
+                <div class="mb-2 fs-5 fw-normal">
+                  Shipped Orders
+                </div>
+                <div class="fs-3 fw-bolder">
+                   {{data.orders_shipped}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-2">
+        <div class="col-12 col-lg-6">
+            <canvas id="chart"></canvas>
+        </div>
+        <div class="col-12 col-lg-6" style="height: 350px;">
+            <canvas height="350px" id="bar"></canvas>
+        </div>
+    </div>
+    
+</div>
+
+

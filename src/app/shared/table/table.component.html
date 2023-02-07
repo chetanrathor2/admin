@@ -1,0 +1,17 @@
+<table class="table  ">
+    <thead class="  rounded-3  text-secondary  " style="background-color: rgba(248,64,114,0.1) !important;">
+      <tr class="rounded-3 p-2 ">
+        <th *ngFor="let col of columns" class=" text-secondary fw-normal fs-5 p-4 " scope="col">{{col}}</th>
+        <th  class=" text-secondary fw-normal fs-5 p-4 " scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index" >
+       
+        <td *ngFor="let key of keys" class="p-4">{{user[key]}}</td>
+        <td><a [routerLink]="['profile/',user.id]" class="material-symbols-outlined text-decoration-none p-4 text-primary">
+            visibility
+            </a></td>
+      </tr>
+    </tbody>
+  </table>
