@@ -14,6 +14,7 @@ export class UsersComponent implements OnInit {
   users: User[] | void = [];
   columns: string[] = ['Name', 'User Id', 'Phone Number', 'Email', 'View'];
   keys:string[] =[]
+  type:number = 1
   constructor(
     private api: ApiService,
     private get: GetService,
@@ -28,7 +29,7 @@ export class UsersComponent implements OnInit {
   async manupulateData() {
     let data:User[]= await this.get.getallusers(1);
     let tempUser : User[] = []
-   data.map((user)=>{
+    data.map((user)=>{
     let tempObj : User = {name:'',id:-1,phonenumber:-1,email:'',}
      this.keys = Object.keys(tempObj)
     tempObj['name'] = user.name 

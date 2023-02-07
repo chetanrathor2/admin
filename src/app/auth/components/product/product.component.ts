@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { Product } from 'src/app/interface/response/product';
 import { ApiService } from 'src/app/services/api.service';
 import { ErrorService } from 'src/app/services/error/error.service';
 
@@ -10,11 +11,13 @@ import { ErrorService } from 'src/app/services/error/error.service';
 })
 export class ProductComponent implements OnInit {
 
-  products:any
+  products:Product[] = []
+  columns: string[] = ['Product Name','Category','Price','Status','Action'];
+  keys:string[] =[]
   constructor(private api:ApiService,private errorservice:ErrorService) { }
 
   ngOnInit(): void {
-    this.getProduct()
+    this.manupulateData()
   }
 
   async getProduct(){
@@ -22,5 +25,32 @@ export class ProductComponent implements OnInit {
   this.errorservice.showErro(err)
   })
   }
+
+  async manupulateData() {
+    let data:Product[]=  await firstValueFrom(this.api.get('/products')).catch((err)=>{
+      this.errorservice.showErro(err)
+    })
+    let tempOrder : Product[] = []
+    data.map((product)=>{
+    let tempObj : Product | any = {data:'',Category:'',Price:-1,Status:'',}
+    this.keys = Object.keys(tempObj)
+    let data :any  = {}
+    // tempObj['data']['image'] = product.image['url'] 
+    // tempObj['Product_Name'] = product.Product_Name
+    data['image'] = product.image
+    data['Product_Name'] = product.Product_Name
+    tempObj['data'] = data
+    tempObj['Category'] = product.Category
+    tempObj['Price'] = product.Price
+    tempObj['Status'] = product.Status
+    console.log(tempObj);
+    
+    tempOrder.push(tempObj)
+   })
+   this.products = tempOrder
+   
+   
+  }
+
 
 }

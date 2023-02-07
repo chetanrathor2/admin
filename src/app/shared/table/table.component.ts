@@ -1,4 +1,4 @@
-import { Component, Input, NgIterable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, Input, NgIterable, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { User } from 'src/app/interface/response/user';
 
 @Component({
@@ -7,22 +7,27 @@ import { User } from 'src/app/interface/response/user';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit ,OnChanges{
-@Input()  users :any
+@Input()  data :User[]|any
 @Input() columns :string[] = []
 @Input() keys :string[] = []
-
+@Input() type :number = -1
+// @ViewChild('imageele') img = ''
   constructor() { }
   // column!:any
 
   ngOnInit(): void {
     // console.log(this.users);
+  
   }
   ngOnChanges(changes: SimpleChanges): void {
     // console.log(this.users);
   // this.keyOfTable = this.users?Object.keys(this.users[0]):''
   //  console.log(this.column);
-  console.log(this.columns);
-  console.log(this.users);
+  console.log(this.data);
+  
+
+  // console.log(this.data);
+  
   
   }
 }

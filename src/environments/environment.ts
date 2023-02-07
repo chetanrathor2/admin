@@ -5,7 +5,8 @@
 export const environment = {
   production: true,
   // url:'https://x8ki-letl-twmt.n7.xano.io/api:US_fNtX4'
-    
+    url:'https://x8ki-letl-twmt.n7.xano.io/api:UOBONy7B'
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

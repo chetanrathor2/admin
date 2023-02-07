@@ -1,2 +1,2 @@
 <app-loader *ngIf="!users"></app-loader>
-<app-table [users]="users" [keys]="keys" [columns]="columns" ></app-table>
+<app-table [data]="users" [type]="1"  [keys]="keys" [columns]="columns" *ngIf="users" ></app-table>
