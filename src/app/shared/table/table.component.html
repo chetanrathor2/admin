@@ -1,19 +1,37 @@
 <table class="table  ">
-    <thead class="  rounded-3  text-secondary  " style="background-color: rgba(248,64,114,0.1) !important;">
-      <tr class="rounded-3 p-2 ">
-        <th *ngFor="let col of columns" class=" text-secondary fw-normal fs-5 p-4 " scope="col">{{col}}</th>
-        <!-- <th  class=" text-secondary fw-normal fs-5 p-4 " scope="col">Actions</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item  of  data; let i = index" >
-        <td class="p-4" *ngIf="type==4"><img [src]="item['image']" alt=""></td>
-        <td *ngFor="let key of keys" class="p-4">{{item[key]}}</td>
-        <td *ngIf="type==1"><a [routerLink]="['profile/',item.id]"   class="material-symbols-outlined text-decoration-none p-4 text-primary">
-            visibility
-            </a></td>
-      </tr>
-    </tbody>
-  </table>
+  <thead class="  rounded-3  text-secondary  " style="background-color: rgba(248,64,114,0.1) !important;">
+    <tr class="rounded-3 p-2 ">
+      <th *ngFor="let col of columns" class=" text-secondary fw-normal fs-5 p-4 " scope="col">{{col}}</th>
+      <!-- <th  class=" text-secondary fw-normal fs-5 p-4 " scope="col">Actions</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item  of  data; let i = index">
+      <!-- <td class="p-4" *ngIf="type==4"><img [src]="item['image']" alt=""></td> -->
+      <!-- <td *ngFor="let key of keys" class="p-4">{{item[key]}}</td> -->
+      <ng-container *ngFor="let key of keys">
+        <td class="p-4" *ngIf="key=='data'">
+          <div class="d-flex flex-row">
 
- 
+            <div class="table_img">
+              <img [src]="item[key]['image']['url']" class="w-100 h-100" alt="">
+            </div>{{item[key]['Product_Name']}}
+          </div>
+        </td>
+        <td class="p-4" *ngIf="key!='data'&&key!='id'">{{item[key]}}</td>
+        <td class="p-4" *ngIf="key=='id'&&type==4"><a [routerLink]="['profile/',item.id]"
+          class="material-symbols-outlined text-decoration-none p-4 text-primary">
+          edit_note
+        </a></td>
+      </ng-container>
+      <td *ngIf="type==1"><a [routerLink]="['profile/',item.id]"
+          class="material-symbols-outlined text-decoration-none p-4 text-primary">
+          visibility
+        </a></td>
+      <!-- <td *ngIf="type==4"><a [routerLink]="['profile/',item.id]"
+          class="material-symbols-outlined text-decoration-none p-4 text-primary">
+          
+        </a></td> -->
+    </tr>
+  </tbody>
+</table>

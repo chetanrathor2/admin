@@ -32,7 +32,7 @@ export class ProductComponent implements OnInit {
     })
     let tempOrder : Product[] = []
     data.map((product)=>{
-    let tempObj : Product | any = {data:'',Category:'',Price:-1,Status:'',}
+    let tempObj : Product | any = {data:'',Category:'',Price:-1,Status:'',id:-1}
     this.keys = Object.keys(tempObj)
     let data :any  = {}
     // tempObj['data']['image'] = product.image['url'] 
@@ -43,6 +43,7 @@ export class ProductComponent implements OnInit {
     tempObj['Category'] = product.Category
     tempObj['Price'] = product.Price
     tempObj['Status'] = product.Status
+    tempObj['id'] = product.id
     console.log(tempObj);
     
     tempOrder.push(tempObj)

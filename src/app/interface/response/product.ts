@@ -1,4 +1,5 @@
 export interface Product {
+  id:number
   Product_Name:string
   Category:string
   Price:number

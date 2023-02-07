@@ -21,10 +21,10 @@ export class VetComponent implements OnInit {
     let data:User[]= await this.get.getallusers(2);
     let tempUser : User[] = []
    data.map((user)=>{
-    let tempObj : User = {name:'',id:-1,phonenumber:-1,email:'',}
+    let tempObj : User | any = {name:'',vet_id:-1,phonenumber:-1,email:'',}
      this.keys = Object.keys(tempObj)
     tempObj['name'] = user.name 
-    tempObj['id'] = user.id 
+    tempObj['vet_id'] = user.id 
     tempObj['phonenumber'] = user.phonenumber 
     tempObj['email'] = user.email 
     tempUser.push(tempObj)

@@ -30,10 +30,10 @@ export class UsersComponent implements OnInit {
     let data:User[]= await this.get.getallusers(1);
     let tempUser : User[] = []
     data.map((user)=>{
-    let tempObj : User = {name:'',id:-1,phonenumber:-1,email:'',}
+    let tempObj : User | any = {name:'',user_id:-1,phonenumber:-1,email:'',}
      this.keys = Object.keys(tempObj)
     tempObj['name'] = user.name 
-    tempObj['id'] = user.id 
+    tempObj['user_id'] = user.id 
     tempObj['phonenumber'] = user.phonenumber 
     tempObj['email'] = user.email 
     tempUser.push(tempObj)
